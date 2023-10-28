@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Flush the DNS on Mac OSX
+function dnsflush()
+{
+    dscacheutil -flushcache'
+}
+
+dnsflush

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Trim new lines and squeeze extra whitespace
+function trim()
+{
+    tr '\n' ' ' | tr -s '[:blank:]'
+}
+
+trim

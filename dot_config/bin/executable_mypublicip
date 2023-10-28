@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Get IP adress (not very portable)
+function mypublicip()
+{
+    # MacOS
+    MY_IP=$(https --body https://api.ipify.org/)
+    echo ${MY_IP:-"Not connected"}
+}
+
+mypublicip

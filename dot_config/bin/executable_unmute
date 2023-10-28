@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Control speaker output volume
+function unmute()
+{
+    osascript -e 'set volume output muted false'
+}
+
+unmute
+

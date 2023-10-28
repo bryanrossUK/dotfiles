@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Best attempt at fixing file permissions
+function fixperms(){
+    # Fix directories
+    find . -type d -exec chmod 755 {} \;
+
+    # Fix files
+    find . -type f -exec chmod 644 {} \;
+
+    # Make shell files executable
+    find . -name d -exec chmod 755 {} \;
+}
+
+fixperms "$@"

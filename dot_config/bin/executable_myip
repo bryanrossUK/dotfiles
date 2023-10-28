@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get IP adress (not very portable)
+function myip()
+{
+    # MacOS
+    MY_IP=$(ipconfig getifaddr en0)
+    echo ${MY_IP:-"Not connected"}
+}
+
+myip
+

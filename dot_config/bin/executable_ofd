@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Open the current directory in a Finder window
+function ofd()
+{
+    open $PWD
+}
+
+ofd
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+# Show/hide hidden files in the Finder
+function showfiles()
+{
+    defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder
+}
+
+showfiles

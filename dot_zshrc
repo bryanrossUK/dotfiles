@@ -1,0 +1,56 @@
+
+# Set Path
+export PATH="$HOME/.config/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Set Editor
+export EDITOR=$(which nano)
+
+# GNU Tools for MacOS (https://github.com/fabiomaia/linuxify)
+source ~/.linuxify
+
+# Homebrew Command Not Found (https://github.com/Homebrew/homebrew-command-not-found)
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+source "$HB_CNF_HANDLER";
+fi
+
+# zsh auto completion
+# Wait this many seconds for typing to stop, before showing completions.
+zstyle ':autocomplete:*' min-delay 0.5  # float
+
+# Wait until this many characters have been typed, before showing completions.
+zstyle ':autocomplete:*' min-input 5  # int
+
+# Don't show completions when the input consists of two or more dots.
+zstyle ':autocomplete:*' ignored-input '..##'
+
+# menu-complete: Press again to cycle to next (previous) completion.
+zstyle ':autocomplete:*' widget-style menu-complete
+
+# Use Zsh's `cdr` function to show recent directories as completions.
+zstyle ':autocomplete:*' recent-dirs cdr
+
+source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# zsh auto suggestions (installed via brew) (https://github.com/zsh-users/zsh-autosuggestions)
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh (faster) syntax highlighting (installed via brew) (https://github.com/zdharma-continuum/fast-syntax-highlighting#performance)
+source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Auto Complete
+#FPATH=/usr/local/share/zsh-completions:$FPATH
+#autoload -Uz compinit
+#compinit
+
+# Make zsh know about hosts already accessed by SSH
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+# SSH Agent
+# tbc -
+
+# Aliases
+source ~/.config/aliases.zsh
+
+# Load Starship Prompt
+eval "$(starship init zsh)"

@@ -1,0 +1,43 @@
+# ~/.config/starship.toml
+
+# Keep a fairly clean/static prompt
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$directory\
+$container\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
+# move the rest of the prompt to the right
+right_format = """$all"""
+
+# The line_break module separates the prompt into two lines.
+[line_break]
+disabled = true
+
+# The character module shows a character (usually an arrow) beside where the text is entered
+# in your terminal.
+#[character]
+#success_symbol = "[⤚](bold green)"
+#error_symbol = "[⤚](bold red)"
+
+# Displays the current Kubernetes context (opens new window)name and, if set, the namespace from the kubeconfig file. 
+[kubernetes]
+disabled = true
+
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+".*/openshift-cluster/.*" = "openshift"
+"gke_.*_(?P<cluster>[\\w-]+)" = "gke-$cluster"
+

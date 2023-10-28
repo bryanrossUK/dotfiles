@@ -1,0 +1,30 @@
+
+# General
+##########
+*.log
+*.sqlite
+
+
+# OS Generated Files
+#####################
+.AppleDouble
+.DS_Store
+.DS_Store?
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+Icon?
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+._*
+ethumbs.db
+Thumbs.db
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
