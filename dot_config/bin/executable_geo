@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+
+# Bash utility for getting specific network info
+# Author: Jake Meyer
+# Github: https://github.com/jakewmeyer
+
+configuredClient=""
+
+## This function determines which http get tool the system has installed and returns an error if there isnt one
+getConfiguredClient()
+{
+  if  command -v curl &>/dev/null; then
+    configuredClient="curl"
+  elif command -v wget &>/dev/null; then
+    configuredClient="wget"
+  elif command -v http &>/dev/null; then
+    configuredClient="httpie"
+  elif command -v fetch &>/dev/null; then
+    configuredClient="fetch"
+  else
+    echo "Error: This tool requires either curl, wget, httpie or fetch to be installed." >&2
+    return 1
+  fi
+}
+
+## Allows to call the users configured client without if statements everywhere
+httpGet()
+{
+  case "$configuredClient" in
+    curl)  curl -A curl -s "$@" ;;
+    wget)  wget -qO- "$@" ;;
+    httpie) http -b GET "$@" ;;
+    fetch) fetch -q "$@" ;;
+  esac
+}
+
+# Parse arguments passed + help formatting
+usage() {
+  cat <<EOF
+Geo
+
+Description: Provides quick access for wan, lan, router, dns, mac, and ip geolocation data
+
+Usage: geo [flag]
+  -w  Returns WAN IP
+  -l  Returns LAN IP(s)
+  -r  Returns Router IP
+  -d  Returns DNS Nameserver
+  -m  Returns MAC address for interface. Ex. eth0
+  -g  Returns Current IP Geodata
+
+Examples:
+  geo -g
+  geo -wlrdgm eth0
+
+Custom Geo Output => [all] [query] [city] [region] [country] [zip] [isp]
+Example: geo -a 8.8.8.8 -o city,zip,isp
+  -o [options]  Returns Specific Geodata
+  -a [address]  For specific IP (eg. 8.8.8.8)
+  -h            Returns Help Screen
+EOF
+    exit
+}
+
+# Fetches WAN IP address
+wan_search() {
+  httpGet https://api.ipify.org
+}
+
+# Fetches current LAN IP address
+lan_search() {
+  if [ "$(uname)" = "Darwin" ]; then
+    ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+  elif [ "$(uname -s)" = "Linux" ]; then
+    ip addr show | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+  else
+    echo "OS not supported"
+    exit 1
+  fi
+}
+
+# Fetches Router ip address
+router_search() {
+  if [ "$(uname)" = "Darwin" ]; then
+    netstat -rn | grep default | head -1 | awk '{print$2}'
+  elif [ "$(uname -s)" = "Linux" ]; then
+    ip route | grep ^default'\s'via | head -1 | awk '{print$3}'
+  else
+    echo "OS not supported"
+    exit 1
+  fi
+}
+
+# Fetches DNS nameserver
+dns_search() {
+  if [ "$(uname)" = "Darwin" ]; then
+    grep -i nameserver /etc/resolv.conf |head -n1|cut -d ' ' -f2
+  elif [ "$(uname -s)" = "Linux" ]; then
+    cat /etc/resolv.conf | grep -i ^nameserver | cut -d ' ' -f2
+  else
+    echo "OS not supported"
+    exit 1
+  fi
+}
+
+# Fetches MAC address of
+mac_search() {
+  if [ "$(uname)" = "Darwin" ]; then
+    ifconfig "$MAC" | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+  elif [ "$(uname -s)" = "Linux" ]; then
+    ip addr show "$MAC" | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | grep -v ff:
+  else
+    echo "OS not supported"
+    exit 1
+  fi
+}
+
+# Fetches current geodata based on ip
+geodata_search() {
+  httpGet "http://ip-api.com/line/?fields=query,city,region,country,zip,isp"
+}
+
+# Fetches specific geodata based on args
+specific_geo() {
+  if [ "$OPTIONS" = "all" ]; then
+    httpGet "http://ip-api.com/line/${ADDRESS}?fields=query,city,region,country,zip,isp"
+  else
+    httpGet "http://ip-api.com/line/${ADDRESS}?fields=${OPTIONS}"
+  fi
+}
+
+checkInternet() {
+  httpGet github.com > /dev/null 2>&1 || { echo "Error: no active internet connection" >&2; return 1; } # query github with a get request
+}
+
+# Option parsing "controller"
+optspec="uwlrdm:go:a:vh*:"
+while getopts "$optspec" optchar; do
+  case "${optchar}" in
+    w) getConfiguredClient && checkInternet && wan_search || exit 1 ;;
+    l) lan_search ;;
+    r) router_search ;;
+    d) dns_search ;;
+    m) MAC=$OPTARG mac_search ;;
+    g) getConfiguredClient && checkInternet && geodata_search || exit 1 ;;
+    a) ADDRESS=$OPTARG ;;
+    o) getConfiguredClient && checkInternet && OPTIONS=$OPTARG specific_geo || exit 1 ;;
+    h) usage ;;
+    *) usage ;;
+  esac
+done
+
+# Makes geo command default to help screen for usability
+if [ $# -eq 0 ]; then
+  usage
+  exit 0
+elif [[ $1 == "help" ]]; then
+  usage
+  exit 0
+fi

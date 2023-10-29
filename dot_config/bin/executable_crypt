@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+outfile=""
+
+checkOpenSSL()
+{
+  if  ! command -v openssl &>/dev/null; then
+    echo "Error: to use this tool openssl must be installed" >&2
+    return 1
+  else
+    return 0
+  fi
+}
+
+## uses openssl aes 256 cbc encryption to encrypt file salting it with password designated by user
+encrypt()
+{
+  echo "Encrypting $1..." >&2
+  openssl enc -aes-256-cbc -salt -a -in "$1" $outfile || { echo "File not found"; return 1; }
+  echo "Successfully encrypted" >&2
+}
+
+## uses openssl aes 256 cbc decryption to decrypt file
+decrypt()
+{
+  echo "Decrypting $1..." >&2
+  openssl enc -aes-256-cbc -d -a -in "$1" $outfile || { echo "File not found"; return 1; }
+  echo "Successfully decrypted" >&2
+}
+
+## usage instructions
+usage()
+{
+  cat <<EOF
+Crypt
+Description: A wrapper around openssl that facilitates encrypting and decrypting files.
+Usage: crypt [infile] (outfile)
+Examples:
+  crypt mySecretFile.txt > myCrypto.txt
+  crypt myCrypto.txt > PlainText.txt
+  crypt myDoc.txt secret.txt
+EOF
+}
+
+checkOpenSSL || exit 1
+
+if [[ $# == 0 ]]; then
+  usage
+elif [[ $1 == --help ]]; then
+  usage
+else
+  if [[ $# == 2 ]]; then outfile="-out $2"; fi
+  echo "outfile is $outfile" >&2
+  filetype=$(file -b "$1")
+  filetype=${filetype%% *}
+  if [[ $filetype == openssl ]]; then
+    decrypt $1 "$outfile"
+  else
+    encrypt $1 "$outfile"
+  fi
+fi
+
