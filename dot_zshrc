@@ -54,3 +54,4 @@ source ~/.config/aliases.zsh
 
 # Load Starship Prompt
 eval "$(starship init zsh)"
+. "/Users/rbryan/.acme.sh/acme.sh.env"

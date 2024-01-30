@@ -1,6 +1,13 @@
 [user]
     name = Bryan Ross
     email = bryan@liquidstate.net
+    signingkey = F9AF8F10
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg
 
 [advice]
     statusHints = false
@@ -134,3 +141,9 @@
 
 #[diff]
 #    mnemonicprefix = true
+
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
