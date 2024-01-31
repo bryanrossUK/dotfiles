@@ -93,9 +93,10 @@ brew 'nano'                   # Text editor
 
 # CLI Basics
 brew 'bat'                    # Output highlighting (better cat)
-brew 'diff-so-fancy'          # File comparision (better diff)
+brew 'bat-extras'             # Colourful wrappers for other utilities
 brew 'exa'                    # Listing files (better ls)
 brew 'jq'                     # JSON parser
+brew 'ripgrep'                # Line-orientated search tool (better grep)
 brew 'tldr'                   # Brief documentation (better man)
 brew 'dog'                    # DNS lookups (better dig)
 brew 'terminal-notifier'      # Send Mac OS notifications from the terminal
