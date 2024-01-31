@@ -5,5 +5,8 @@ fi
 # Set Path
 export PATH="$HOME/.config/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Rancher Desktop
+export PATH="$HOME/.rd/bin:$PATH"
+
 # Set Editor
 export EDITOR=$(which nano)

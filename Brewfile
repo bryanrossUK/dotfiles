@@ -77,6 +77,7 @@ cask 'quicklook-json', args: { require_sha: false } # QL for JSON, with trees
 brew   'git'                  # Version control
 brew   'httpie'               # HTTP / API client (better curl)
 brew   'python'               # Python interpreter
+cask   'rancher'              # Rancher Desktop (docker and kubernetes)
 cask   'visual-studio-code'   # IDE environment
 vscode 'ms-vscode.wordcount'  # IDE word count
 
@@ -97,7 +98,7 @@ brew 'exa'                    # Listing files (better ls)
 brew 'jq'                     # JSON parser
 brew 'tldr'                   # Brief documentation (better man)
 brew 'dog'                    # DNS lookups (better dig)
-
+brew 'terminal-notifier'      # Send Mac OS notifications from the terminal
 
 # CLI Monitoring / Performance
 brew 'bpytop'                 # Resource monitoring (better htop)
@@ -109,13 +110,11 @@ brew 'lolcat'
 brew 'neofetch'
 
 
+###############################################################################
+# Whalebrew
+###############################################################################
 
-#---------------------
-# 'whalebrew install'
-#---------------------
-# NOTE: this needs Docker installed, but we need a better way than Docker for Mac (£££)
-# brew 'whalebrew'
-#---------------------
-# whalebrew 'whalebrew/ffmpeg'
+brew 'whalebrew'
+whalebrew 'whalebrew/ffmpeg'
 
 
