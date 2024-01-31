@@ -1,0 +1,4 @@
+README.md
+{{- if ne .chezmoi.os "darwin" }}
+Brewfile # only managed Brewfile on MacOS systems
+{{- end }}

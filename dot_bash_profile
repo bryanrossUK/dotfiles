@@ -1,0 +1,9 @@
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc;
+fi
+
+# Set Path
+export PATH="$HOME/.config/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Set Editor
+export EDITOR=$(which nano)
