@@ -50,9 +50,11 @@ if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
 if command -v chezmoi &> /dev/null; then
   function chezmoi() {
     case $* in
-      cd   ) command cd $(command chezmoi source-path) ;;
-      pull ) command chezmoi git pull -- --autostash --rebase && command chezmoi diff ;;
-      *    ) command chezmoi "$@" ;;
+      cd     ) cd $(command chezmoi source-path) ;;
+      pull   ) command chezmoi git pull -- --autostash --rebase ;;
+      commit ) command chezmoi git commit ;;
+      push   ) command chezmoi git push ;;
+      *      ) command chezmoi "$@" ;;
     esac
   }
 fi
