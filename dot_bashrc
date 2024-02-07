@@ -46,6 +46,16 @@ if command -v dog &> /dev/null; then alias dig='dog'; fi
 # bpytop is top turned up to 11
 if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
 
+# make chezmoi a little more usable
+if command -v chezmoi &> /dev/null; then
+  function chezmoi() {
+    case $* in
+      cd   ) command cd $(command chezmoi source-path) ;;
+      pull ) command chezmoi git pull -- --autostash --rebase && command chezmoi diff ;;
+      *    ) command chezmoi "$@" ;;
+    esac
+  }
+fi
 
 ###############################################################################
 # Initialise Software

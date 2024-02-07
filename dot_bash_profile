@@ -25,14 +25,12 @@ if [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]
   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 fi
 
-
 ###############################################################################
 # Configure other environment variables
 ###############################################################################
 
 # Set Editor
 export EDITOR=$(which nano)
-
 
 ###############################################################################
 # Call Bash-specific aliases and functions from ~/.bashrc
