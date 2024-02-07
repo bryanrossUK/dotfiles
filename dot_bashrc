@@ -6,32 +6,45 @@
 alias ..="cd .."
 
 # do you ever mean actual 'ls'?
-alias ls="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
-alias ll="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
+if command -v exa &> /dev/null; then
+  alias ls="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
+  alias ll="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
+fi
 
 # du / df more human
 alias du="command du -d 1 -h"
 alias df="command df -h"
 
-# sensibly search within files
-alias grep='command grep -R -H -n --color=auto --exclude-dir={.git,.svn,CVS} $@ 2>/dev/null'
+# Bat brings a few colourful themes
+export BAT_THEME="Visual Studio Dark+"
 
-# Repaint the screen, discarding any buffered input.  That is, reload the current
-# file.  Useful if the file is changing while it is being viewed.
-alias less='less -R'
+# Bat is better than cat
+if command -v bat &> /dev/null; then
+  alias cat='bat --paging=never --style=header,grid'
+  alias less='bat --style=header,grid'
+else
+  # Repaint the screen, discarding any buffered input.  That is, reload the current
+  # file.  Useful if the file is changing while it is being viewed.
+  alias less='less -R'
+fi
 
-# Bat is a better cat
-alias cat='bat --paging=never'
-alias less='bat'
-alias grep='batgrep'
-alias diff='batdiff --paging=never'
-alias watch='batwatch'
+# Bat is also a pretty good grep (although not 100% compatible)
+if command -v bat &> /dev/null; then
+  alias grep='batgrep'
+else
+  alias grep='command grep -R -H -n --color=auto --exclude-dir={.git,.svn,CVS} $@ 2>/dev/null'
+fi
+
+# Bat comes with some other extras too
+if command -v batdiff  &> /dev/null; then alias diff='batdiff --paging=never'; fi
+if command -v batwatch &> /dev/null; then alias watch='batwatch'; fi
+if command -v batman   &> /dev/null; then alias man='batman'; fi
 
 # Dog is a better dig
-alias dig=dog
+if command -v dog &> /dev/null; then alias dig='dog'; fi
 
 # bpytop is top turned up to 11
-alias top=bpytop
+if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
 
 
 ###############################################################################

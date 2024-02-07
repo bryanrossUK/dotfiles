@@ -1,12 +1,40 @@
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc;
+###############################################################################
+# Set Path - we do this early so that ~/.bashrc has access to all commands
+###############################################################################
+
+# Local Binaries
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Personal Scripts
+if [ -d "$HOME/.config/bin" ]; then
+  export PATH="$HOME/.config/bin:$PATH"
 fi
 
-# Set Path
-export PATH="$HOME/.config/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-
 # Rancher Desktop
-export PATH="$HOME/.rd/bin:$PATH"
+if [ -d "$HOME/.rd/bin" ]; then
+  export PATH="$HOME/.rd/bin:$PATH"
+fi
+
+# Initialise Homebrew (package installer)
+if [ -f '/opt/homebrew/bin/brew' ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Initialise 1Password
+if [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
+  export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+fi
+
+
+###############################################################################
+# Configure other environment variables
+###############################################################################
 
 # Set Editor
 export EDITOR=$(which nano)
+
+
+###############################################################################
+# Call Bash-specific aliases and functions from ~/.bashrc
+###############################################################################
+. ~/.bashrc

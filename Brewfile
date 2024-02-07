@@ -65,7 +65,7 @@ cask 'qlcolorcode'    # QL for code with highlighting
 cask 'qlimagesize'    # AL for size info for images
 cask 'qlmarkdown'     # QL for markdown files
 cask 'qlprettypatch'  # QL for patch / diff files
-cask 'qlstephen'      # QL for dev text files
+#cask 'qlstephen'      # QL for dev text files
 cask 'qlvideo'        # QL for video formats
 cask 'quicklook-csv'  # QL for tables in CSV format
 cask 'quicklook-json', args: { require_sha: false } # QL for JSON, with trees
@@ -78,9 +78,19 @@ brew   'git'                  # Version control
 brew   'httpie'               # HTTP / API client (better curl)
 brew   'python'               # Python interpreter
 cask   'rancher'              # Rancher Desktop (docker and kubernetes)
-cask   'visual-studio-code'   # IDE environment
-vscode 'ms-vscode.wordcount'  # IDE word count
-
+cask   'visual-studio-code'              # IDE
+vscode 'tinkertrain.theme-panda'         # IDE: make it pretty
+vscode 'ms-vscode.wordcount'             # IDE: word count
+vscode 'ms-vscode-remote.vscode-remote-extensionpack'  # IDE: dev in containers
+vscode 'ms-kubernetes-tools.vscode-kubernetes-tools'   # IDE: dev in kuberntes
+vscode 'yzhang.markdown-all-in-one'      # IDE: better markdown support
+vscode 'donjayamanne.githistory'         # IDE: view git log, history, etc
+vscode 'formulahendry.code-runner'       # IDE: run specific code snippets
+vscode 'chrmarti.regex'                  # IDE: visual preview of regexp
+vscode 'wayou.vscode-todo-highlight'     # IDE: highlight TODO items
+vscode 'kamikillerto.vscode-colorize'    # IDE: visualise CSS colours
+vscode 'ms-azuretools.vscode-docker'     # IDE: docker integration
+vscode 'GitLab.gitlab-workflow'          # IDE: GitLab integration
 
 ###############################################################################
 # Command Line Tools
@@ -116,6 +126,6 @@ brew 'neofetch'
 ###############################################################################
 
 brew 'whalebrew'
-whalebrew 'whalebrew/ffmpeg'
+#whalebrew 'whalebrew/ffmpeg'
 
 

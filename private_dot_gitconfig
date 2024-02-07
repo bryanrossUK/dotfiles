@@ -3,11 +3,17 @@
     email = bryan@liquidstate.net
     signingkey = F9AF8F10
 
-[commit]
-    gpgsign = true
+#	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJoEgE5rw5lXIDDEh2qaBw67Bu6+H9LHQRZttqMfZP0S
 
 [gpg]
     program = gpg
+#	format = ssh
+
+#[gpg "ssh"]
+#	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+#[commit]
+#	gpgsign = true
 
 [advice]
     statusHints = false
