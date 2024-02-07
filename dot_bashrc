@@ -60,4 +60,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Launch Starship (custom command prompt)
 eval "$(starship init bash)"
 
-# test line 2
+# test line 3
