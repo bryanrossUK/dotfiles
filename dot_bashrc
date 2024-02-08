@@ -1,4 +1,18 @@
 ###############################################################################
+# Initialise Software
+###############################################################################
+
+# Launch Starship (custom command prompt)
+eval "$(starship init bash)"
+
+# Initialise Homebrew (package installer)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Initialise acme.sh (certificate management)
+source $HOME/.acme.sh/acme.sh.env
+
+
+###############################################################################
 # Aliases
 ###############################################################################
 
@@ -49,25 +63,13 @@ if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
 # make chezmoi a little more usable
 if command -v chezmoi &> /dev/null; then
   function chezmoi() {
-    case $* in
-      cd     ) cd $(command chezmoi source-path) ;;
-      pull   ) command chezmoi git pull -- --autostash --rebase ;;
-      commit ) command chezmoi git commit ;;
-      push   ) command chezmoi git push ;;
-      *      ) command chezmoi "$@" ;;
+    case $1 in
+      cd     ) cd $(command chezmoi source-path) ;;                # stop launching a new shell
+      pull   ) command chezmoi git pull -- --autostash --rebase ;; # pull updates, but dont apply them
+      commit ) command chezmoi git -- commit ${@:2} && \
+               command chezmoi git -- push ;;                      # commit changes and push them
+      push   ) command chezmoi git -- push ${@:2} ;;               # push changes
+      *      ) command chezmoi "$@" ;;                             # let chezmoi do its thing
     esac
   }
 fi
-
-###############################################################################
-# Initialise Software
-###############################################################################
-
-# Initialise acme.sh (certificate management)
-source $HOME/.acme.sh/acme.sh.env
-
-# Initialise Homebrew (package installer)
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Launch Starship (custom command prompt)
-eval "$(starship init bash)"
