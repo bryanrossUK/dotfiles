@@ -51,7 +51,6 @@ cask 'bartender'        # Manage and hide menubar items
 cask 'cleanshot'        # Screenshot utility
 cask 'itsycal'          # Neat calendar in the menubar
 cask 'raycast'          # Spotlight alternative
-cask 'rocket'           # Emoji search
 brew 'starship'         # Command prompt customisation
 cask 'warp'             # Terminal
 cask 'openinterminal'   # Finder button to open dirs in terminal / editor
@@ -80,7 +79,6 @@ brew   'python'               # Python interpreter
 cask   'rancher'              # Rancher Desktop (docker and kubernetes)
 cask   'visual-studio-code'              # IDE
 vscode 'tinkertrain.theme-panda'         # IDE: make it pretty
-vscode 'ms-vscode.wordcount'             # IDE: word count
 vscode 'ms-vscode-remote.vscode-remote-extensionpack'  # IDE: dev in containers
 vscode 'ms-kubernetes-tools.vscode-kubernetes-tools'   # IDE: dev in kuberntes
 vscode 'yzhang.markdown-all-in-one'      # IDE: better markdown support
@@ -91,6 +89,10 @@ vscode 'wayou.vscode-todo-highlight'     # IDE: highlight TODO items
 vscode 'kamikillerto.vscode-colorize'    # IDE: visualise CSS colours
 vscode 'ms-azuretools.vscode-docker'     # IDE: docker integration
 vscode 'GitLab.gitlab-workflow'          # IDE: GitLab integration
+vscode 'TabNine.tabnine-vscode'          # IDE: AI Autocomplete
+vscode 'EliverLara.andromeda'            # IDE: Theme
+vscode 'rangav.vscode-thunder-client'    # IDE: Rest API Client
+
 
 ###############################################################################
 # Command Line Tools
