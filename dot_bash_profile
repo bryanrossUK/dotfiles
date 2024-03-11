@@ -18,6 +18,7 @@ fi
 # Initialise Homebrew (package installer)
 if [ -f '/opt/homebrew/bin/brew' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications $HOMEBREW_CASK_OPTS"
 fi
 
 # Initialise 1Password
@@ -25,12 +26,16 @@ if [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]
   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 fi
 
-###############################################################################
-# Configure other environment variables
-###############################################################################
+# Initialise zoxide
+if [ -f $(which zoxide) ]; then
+  eval "$(zoxide init bash)"
+  alias cd=z
+fi
 
 # Set Editor
-export EDITOR=$(which nano)
+if [ -f $(which nano) ]; then
+  export EDITOR=$(which nano)
+fi
 
 ###############################################################################
 # Call Bash-specific aliases and functions from ~/.bashrc

@@ -11,63 +11,49 @@ cask_args appdir: '~/Applications', require_sha: true
 ###############################################################################
 cask 'font-roboto-mono-nerd-font'
 cask 'font-ubuntu-nerd-font'
+cask 'font-hack-nerd-font'
 
 
 ###############################################################################
 # Applications
 ###############################################################################
-cask 'arc'
-cask 'fantastical'
-cask 'slack'
-cask 'spotify', args: { require_sha: false }
-
-
-###############################################################################
-# WebConferencing
-###############################################################################
-# cask 'zoom' # managed by your IT Admin
-cask 'descript'
-cask 'deskpad'
-cask 'whatsapp'
-mas  'Hand Mirror', id: 1502839586
-
-
-###############################################################################
-# Security
-###############################################################################
-cask '1password'                 # Password manager
-cask '1password-cli'             # Access 1Password from the cmdline
-cask 'adguard'                   # Block web adverts
-cask 'authy'                     # 2FA application
-cask 'santa'                     # Malware detection tool
-cask 'yubico-yubikey-manager'    # Manage Yubikey
-mas  'SponsorBlock for YouTube', id: 1573461917 # Skip sponsors in videos
-
-
-###############################################################################
-# Customisation
-###############################################################################
-cask 'bartender'        # Manage and hide menubar items
-cask 'cleanshot'        # Screenshot utility
-cask 'itsycal'          # Neat calendar in the menubar
-cask 'raycast'          # Spotlight alternative
-brew 'starship'         # Command prompt customisation
-cask 'warp'             # Terminal
-cask 'openinterminal'   # Finder button to open dirs in terminal / editor
-mas  'Unsplash Wallpapers', id: 1284863847
+cask '1password'                                   # Password manager
+cask '1password-cli'                               # Access 1Password from the cmdline
+cask 'alt-tab'                                     # Windows-style app switching
+cask 'arc'                                         # Browser
+cask 'bartender'                                   # Manage and hide menubar items
+cask 'amazon-photos', args: { require_sha: false } # Family file storage
+cask 'cleanshot'                                   # Screenshot utility
+cask 'clocker'                                     # Show world time in menubar
+cask 'descript'                                    # Video content creation
+cask 'deskpad'                                     # Virtual desktop for presenting
+cask 'diffusionbee'                                # AI image generation
+cask 'fantastical'                                 # Calendar
+cask 'gpg-suite'                                   # GPG Keys management
+cask 'itsycal'                                     # Neat calendar in the menubar
+cask 'logi-options-plus'                           # Logitech mouse support
+cask 'notion'                                      # Notion
+cask 'raycast'                                     # Spotlight alternative
+cask 'todoist'                                     # Todo lists
+mas  'TP-Link Tapo', id: 1472718009                # Tapo smartplug integration
+cask 'slack'                                       # Chat
+mas  'SponsorBlock for YouTube', id: 1573461917    # Skip sponsors in videos
+cask 'spotify', args: { require_sha: false }       # Music
+brew 'starship'                                    # Command prompt customisation
+cask 'topnotch'                                    # Hide the top-notch on macbook
+cask 'warp'                                        # Terminal
+cask 'whatsapp'                                    # Messaging
+mas  'Unsplash Wallpapers', id: 1284863847         # Randomised wallpapers
+cask 'yubico-yubikey-manager'                      # Yubikey device management
+cask 'zoom'                                        # Video conferencing
 
 
 ###############################################################################
 # Mac OS Quick-Look Plugins
 ###############################################################################
 cask 'qlcolorcode'    # QL for code with highlighting
-cask 'qlimagesize'    # AL for size info for images
 cask 'qlmarkdown'     # QL for markdown files
-cask 'qlprettypatch'  # QL for patch / diff files
-#cask 'qlstephen'      # QL for dev text files
 cask 'qlvideo'        # QL for video formats
-cask 'quicklook-csv'  # QL for tables in CSV format
-cask 'quicklook-json', args: { require_sha: false } # QL for JSON, with trees
 
 
 ###############################################################################
@@ -104,19 +90,19 @@ brew 'chezmoi'                # Manage dotfiles
 brew 'nano'                   # Text editor
 
 # CLI Basics
-brew 'bat'                    # Output highlighting (better cat)
+brew 'bat'                    # Output highlighting (a better cat)
 brew 'bat-extras'             # Colourful wrappers for other utilities
-brew 'exa'                    # Listing files (better ls)
+brew 'exa'                    # Listing files (a better ls)
 brew 'jq'                     # JSON parser
-brew 'ripgrep'                # Line-orientated search tool (better grep)
-brew 'tldr'                   # Brief documentation (better man)
-brew 'dog'                    # DNS lookups (better dig)
+brew 'ripgrep'                # Line-orientated search tool (a better grep)
+brew 'tldr'                   # Brief documentation (a better man)
+brew 'dog'                    # DNS lookups (a better dig)
 brew 'terminal-notifier'      # Send Mac OS notifications from the terminal
+brew 'zoxide'                 # Smarter directory navigation (a better cd0
 
 # CLI Monitoring / Performance
 brew 'bpytop'                 # Resource monitoring (better htop)
 brew 'nmap'                   # Network scanning
-
 
 # CLI Fun
 brew 'lolcat'
