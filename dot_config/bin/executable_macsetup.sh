@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Install Homebrew
+# TBC
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# brew analytics off
+
 # Configure Chezmoi
 # TBC - how to make this immutable?
 echo "*** Initialising Chezmoi"
