@@ -3,7 +3,7 @@ tap "homebrew/cask-fonts"              # fonts
 tap "buo/cask-upgrade"                 # upgrade cask-installed apps with `brew cu`
 
 # Options
-cask_args appdir: '~/Applications', require_sha: true
+cask_args appdir: '/Applications', fontdir: '/Library/Fonts', require_sha: true
 
 
 ###############################################################################
@@ -31,7 +31,6 @@ cask 'diffusionbee'                                # AI image generation
 cask 'fantastical'                                 # Calendar
 cask 'gpg-suite'                                   # GPG Keys management
 cask 'itsycal'                                     # Neat calendar in the menubar
-cask 'logi-options-plus'                           # Logitech mouse support
 cask 'notion'                                      # Notion
 cask 'raycast'                                     # Spotlight alternative
 cask 'todoist'                                     # Todo lists
@@ -63,21 +62,22 @@ brew   'git'                  # Version control
 brew   'httpie'               # HTTP / API client (better curl)
 brew   'python'               # Python interpreter
 cask   'rancher'              # Rancher Desktop (docker and kubernetes)
-cask   'visual-studio-code'              # IDE
-vscode 'tinkertrain.theme-panda'         # IDE: make it pretty
-vscode 'ms-vscode-remote.vscode-remote-extensionpack'  # IDE: dev in containers
-vscode 'ms-kubernetes-tools.vscode-kubernetes-tools'   # IDE: dev in kuberntes
-vscode 'yzhang.markdown-all-in-one'      # IDE: better markdown support
-vscode 'donjayamanne.githistory'         # IDE: view git log, history, etc
-vscode 'formulahendry.code-runner'       # IDE: run specific code snippets
-vscode 'chrmarti.regex'                  # IDE: visual preview of regexp
-vscode 'wayou.vscode-todo-highlight'     # IDE: highlight TODO items
-vscode 'kamikillerto.vscode-colorize'    # IDE: visualise CSS colours
-vscode 'ms-azuretools.vscode-docker'     # IDE: docker integration
-vscode 'GitLab.gitlab-workflow'          # IDE: GitLab integration
-vscode 'TabNine.tabnine-vscode'          # IDE: AI Autocomplete
-vscode 'EliverLara.andromeda'            # IDE: Theme
-vscode 'rangav.vscode-thunder-client'    # IDE: Rest API Client
+
+#cask   'visual-studio-code'              # IDE
+#vscode 'tinkertrain.theme-panda'         # IDE: make it pretty
+#vscode 'ms-vscode-remote.vscode-remote-extensionpack'  # IDE: dev in containers
+#vscode 'ms-kubernetes-tools.vscode-kubernetes-tools'   # IDE: dev in kuberntes
+#vscode 'yzhang.markdown-all-in-one'      # IDE: better markdown support
+#vscode 'donjayamanne.githistory'         # IDE: view git log, history, etc
+#vscode 'formulahendry.code-runner'       # IDE: run specific code snippets
+#vscode 'chrmarti.regex'                  # IDE: visual preview of regexp
+#vscode 'wayou.vscode-todo-highlight'     # IDE: highlight TODO items
+#vscode 'kamikillerto.vscode-colorize'    # IDE: visualise CSS colours
+#vscode 'ms-azuretools.vscode-docker'     # IDE: docker integration
+#vscode 'GitLab.gitlab-workflow'          # IDE: GitLab integration
+#vscode 'TabNine.tabnine-vscode'          # IDE: AI Autocomplete
+#vscode 'EliverLara.andromeda'            # IDE: Theme
+#vscode 'rangav.vscode-thunder-client'    # IDE: Rest API Client
 
 
 ###############################################################################
@@ -92,11 +92,11 @@ brew 'nano'                   # Text editor
 # CLI Basics
 brew 'bat'                    # Output highlighting (a better cat)
 brew 'bat-extras'             # Colourful wrappers for other utilities
-brew 'exa'                    # Listing files (a better ls)
+#brew 'exa'                    # Listing files (a better ls)
 brew 'jq'                     # JSON parser
 brew 'ripgrep'                # Line-orientated search tool (a better grep)
 brew 'tldr'                   # Brief documentation (a better man)
-brew 'dog'                    # DNS lookups (a better dig)
+#brew 'dog'                    # DNS lookups (a better dig)
 brew 'terminal-notifier'      # Send Mac OS notifications from the terminal
 brew 'zoxide'                 # Smarter directory navigation (a better cd0
 
