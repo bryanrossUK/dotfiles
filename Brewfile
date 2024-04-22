@@ -21,21 +21,24 @@ cask '1password'                                   # Password manager
 cask '1password-cli'                               # Access 1Password from the cmdline
 cask 'alt-tab'                                     # Windows-style app switching
 cask 'arc'                                         # Browser
+cask 'authy'                                       # MFA
 cask 'bartender'                                   # Manage and hide menubar items
+cask 'bettermouse'                                 # Fine-grained mouse control
 cask 'amazon-photos', args: { require_sha: false } # Family file storage
 cask 'cleanshot'                                   # Screenshot utility
-cask 'clocker'                                     # Show world time in menubar
+mas  'Dato', id: 1470584107                        # Calendar updates and world clock
 cask 'descript'                                    # Video content creation
 cask 'deskpad'                                     # Virtual desktop for presenting
 cask 'diffusionbee'                                # AI image generation
-cask 'fantastical'                                 # Calendar
+cask 'elgato-stream-deck'                          # You always need more buttons
 cask 'gpg-suite'                                   # GPG Keys management
-cask 'itsycal'                                     # Neat calendar in the menubar
+cask 'google-drive', args: { require_sha: false }  # Work file storage
+cask 'microsoft-onenote'                           # Note-taking
 cask 'notion'                                      # Notion
+cask 'obs'                                         # Video streaming tool
 cask 'raycast'                                     # Spotlight alternative
 cask 'todoist'                                     # Todo lists
-mas  'TP-Link Tapo', id: 1472718009                # Tapo smartplug integration
-cask 'slack'                                       # Chat
+#mas  'TP-Link Tapo', id: 1472718009                # Tapo smartplug integration (fails)
 mas  'SponsorBlock for YouTube', id: 1573461917    # Skip sponsors in videos
 cask 'spotify', args: { require_sha: false }       # Music
 brew 'starship'                                    # Command prompt customisation
@@ -44,7 +47,6 @@ cask 'warp'                                        # Terminal
 cask 'whatsapp'                                    # Messaging
 mas  'Unsplash Wallpapers', id: 1284863847         # Randomised wallpapers
 cask 'yubico-yubikey-manager'                      # Yubikey device management
-cask 'zoom'                                        # Video conferencing
 
 
 ###############################################################################
@@ -92,7 +94,7 @@ brew 'nano'                   # Text editor
 # CLI Basics
 brew 'bat'                    # Output highlighting (a better cat)
 brew 'bat-extras'             # Colourful wrappers for other utilities
-#brew 'exa'                    # Listing files (a better ls)
+brew 'eza'                    # Listing files (a better ls)
 brew 'jq'                     # JSON parser
 brew 'ripgrep'                # Line-orientated search tool (a better grep)
 brew 'tldr'                   # Brief documentation (a better man)

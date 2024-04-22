@@ -6,7 +6,7 @@
 eval "$(starship init bash)"
 
 # Initialise acme.sh (certificate management)
-source $HOME/.acme.sh/acme.sh.env
+#source $HOME/.acme.sh/acme.sh.env
 
 
 ###############################################################################
@@ -17,9 +17,9 @@ source $HOME/.acme.sh/acme.sh.env
 alias ..="cd .."
 
 # do you ever mean actual 'ls'?
-if command -v exa &> /dev/null; then
-  alias ls="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
-  alias ll="exa --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
+if command -v eza &> /dev/null; then
+  alias ls="eza --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
+  alias ll="eza --long --icons -aa --header --group-directories-first --git --time-style=long-iso"
 fi
 
 # du / df more human
