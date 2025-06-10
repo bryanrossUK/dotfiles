@@ -27,13 +27,13 @@ if [ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]
 fi
 
 # Initialise zoxide
-if [ -f $(which zoxide) ]; then
+if [ -f "$(which zoxide)" ]; then
   eval "$(zoxide init bash)"
   alias cd=z
 fi
 
 # Set Editor
-if [ -f $(which nano) ]; then
+if [ -f "$(which nano)" ]; then
   export EDITOR=$(which nano)
 fi
 
