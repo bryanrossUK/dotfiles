@@ -1,7 +1,9 @@
-[user]
-    name = {{ .name }}
-    email = {{ .email }}
-    signingkey = {{ .signingkey }}
+# Pull name, email, signingkey dynamically
+[includeIf "hasconfig:remote.*.url:git@github.com:**"]
+    path = ~/.gitconfig-github
+
+[includeIf "hasconfig:remote.*.url:git@gitlab.com:**"]
+    path = ~/.gitconfig-gitlab
 
 [gpg]
     format = ssh
