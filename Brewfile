@@ -26,6 +26,7 @@ cask 'bartender'                                   # Manage and hide menubar ite
 #cask 'bettermouse'                                 # Fine-grained mouse control
 #cask 'amazon-photos', args: { require_sha: false } # Family file storage
 cask 'cleanshot'                                   # Screenshot utility
+cask 'command-x'                                   # Cut and paste files in Finder
 mas  'Dato', id: 1470584107                        # Calendar updates and world clock
 #cask 'descript'                                    # Video content creation
 #cask 'deskpad'                                     # Virtual desktop for presenting
