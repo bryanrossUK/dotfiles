@@ -1,8 +1,9 @@
-# Pull name, email, signingkey dynamically
-[includeIf "hasconfig:remote.*.url:git@github.com:**"]
-    path = ~/.gitconfig-github
+[user]
+    name = {{ .name }}
+    email = {{ .email }}
+    signingkey = {{ .github_pubkey }}
 
-[includeIf "hasconfig:remote.*.url:git@gitlab.com:**"]
+[includeIf "gitdir:~/gitlab/"]
     path = ~/.gitconfig-gitlab
 
 [gpg]
@@ -10,7 +11,7 @@
 
 [gpg "ssh"]
     program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-    allowedSignersFile = /Users/{{ .username }}/.ssh/allowed_signers
+    allowedSignersFile = ~/.ssh/allowed_signers
 
 [commit]
     gpgsign = true
