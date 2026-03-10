@@ -1,0 +1,24 @@
+Host i-*
+  ProxyCommand aws ec2-instance-connect open-tunnel --instance-id %h --region eu-west-1
+  User ec2-user
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/aws.pub
+  IdentitiesOnly yes
+
+Host github.com
+  Hostname github.com
+  User git
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/github.pub
+  IdentitiesOnly yes
+
+Host gitlab.com
+  Hostname gitlab.com
+  User git
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/gitlab.pub
+  IdentitiesOnly yes
+
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
