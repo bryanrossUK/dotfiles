@@ -14,6 +14,7 @@
 # {{- $gitlab_name   := promptString "GitLab username for the author/committer" }}
 # {{- $gitlab_email  := promptString "GitLab email address for the author/committer" }}
 # {{- $gitlab_pubkey := promptString "GitLab public key" }}
+# {{- $aws_pubkey := promptString "AWS EC2 public key" }}
 
 [data]
     github_name   = "{{ $github_name }}"
@@ -22,3 +23,4 @@
     gitlab_name   = "{{ $gitlab_name }}"
     gitlab_email  = "{{ $gitlab_email }}"
     gitlab_pubkey = "{{ $gitlab_pubkey }}"
+    aws_pubkey = "{{ aws_pubkey }}"
