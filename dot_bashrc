@@ -20,8 +20,12 @@ if command -v eza &> /dev/null; then
 fi
 
 # du / df more human
-alias du="command dust -d 1"
-alias df="command dysk"
+if command -v dust &> /dev/null; then
+  alias du="dust -d 1"
+fi
+if command -v dysk &> /dev/null; then
+  alias df="command dysk"
+fi
 
 # Bat brings a few colourful themes
 export BAT_THEME="Visual Studio Dark+"
@@ -31,11 +35,9 @@ if command -v bat &> /dev/null; then
   alias cat='bat --paging=never --style=auto'
   export PAGER='bat --style=auto'
   export MANPAGER='bat --style=plain --language=man'
-else
-  # Repaint the screen, discarding any buffered input.  That is, reload the current
-  # file.  Useful if the file is changing while it is being viewed.
-  alias less='less -R'
 fi
+
+alias less='less -R'
 
 # Grep
 alias grep='command grep -rn --color=auto --exclude-dir={.git,.svn,CVS,.hg,node_modules,.direnv,.terraform}'
@@ -44,7 +46,7 @@ alias grep='command grep -rn --color=auto --exclude-dir={.git,.svn,CVS,.hg,node_
 if command -v doggo &> /dev/null; then alias dig='doggo'; fi
 
 # btop is top turned up to 11
-if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
+if command -v btop &> /dev/null; then alias top='btop'; fi
 
 # make chezmoi a little more usable
 if command -v chezmoi &> /dev/null; then
