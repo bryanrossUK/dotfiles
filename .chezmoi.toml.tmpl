@@ -8,11 +8,17 @@
 #
 # {{- /* This file supports Go's text/template language. */}}
 
-# {{- $name := promptString "Git username for the author/committer" }}
-# {{- $email := promptString "Git email address for the author/committer" }}
-# {{- $profile := promptString "What style of machine is this - bare, mac, or vm" }}
+# {{- $github_name   := promptString "GitHub username for the author/committer" }}
+# {{- $github_email  := promptString "GitHub email address for the author/committer" }}
+# {{- $github_pubkey := promptString "GitHub public key" }}
+# {{- $gitlab_name   := promptString "GitLab username for the author/committer" }}
+# {{- $gitlab_email  := promptString "GitLab email address for the author/committer" }}
+# {{- $gitlab_pubkey := promptString "GitLab public key" }}
 
 [data]
-    email = "{{ $email }}"
-    name = "{{ $name }}"
-    profile = "{{ $profile }}"
+    github_name   = "{{ $github_name }}"
+    github_email  = "{{ $github_email }}"
+    github_pubkey = "{{ $github_pubkey }}"
+    gitlab_name   = "{{ $gitlab_name }}"
+    gitlab_email  = "{{ $gitlab_email }}"
+    gitlab_pubkey = "{{ $gitlab_pubkey }}"
