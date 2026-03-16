@@ -59,15 +59,13 @@ brew 'chezmoi'                # Manage dotfiles
 brew 'nano'                   # Text editor
 
 # CLI Basics
-#brew 'bat'                    # Output highlighting (a better cat)
-#brew 'bat-extras'             # Colourful wrappers for other utilities
-brew 'dust'                    # A better du
-brew 'dysk'                    # A better df
-#brew 'eza'                    # Listing files (a better ls)
-#brew 'ripgrep'                # Line-orientated search tool (a better grep)
-brew 'tlrc'                    # Brief documentation (a better man)
-#brew 'dog'                    # DNS lookups (a better dig)
-brew 'terminal-notifier'       # Send Mac OS notifications from the terminal
+brew 'bat'                    # Output highlighting (a better cat)
+brew 'dust'                   # A better du
+brew 'dysk'                   # A better df
+brew 'eza'                    # Listing files (a better ls)
+brew 'tlrc'                   # Brief documentation (a better man)
+brew 'doggo'                  # DNS lookups (a better dig)
+brew 'terminal-notifier'      # Send Mac OS notifications from the terminal
 
 # CLI Monitoring / Performance
 brew 'btop'                    # Resource monitoring (better htop)
