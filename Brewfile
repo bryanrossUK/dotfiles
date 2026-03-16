@@ -8,9 +8,8 @@ cask_args appdir: '/Applications', fontdir: '/Library/Fonts', require_sha: true
 ###############################################################################
 # Fonts
 ###############################################################################
-#cask 'font-roboto-mono-nerd-font'
-#cask 'font-ubuntu-nerd-font'
-#cask 'font-hack-nerd-font'
+cask 'font-jetbrains-mono-nerd-font'
+cask 'font-hack-nerd-font'
 
 
 ###############################################################################
@@ -19,6 +18,7 @@ cask_args appdir: '/Applications', fontdir: '/Library/Fonts', require_sha: true
 cask '1password'                                   # Password manager
 cask '1password-cli'                               # Access 1Password from the cmdline
 cask 'arc'                                         # Browser
+cask 'claude'                                      # Claude desktop app
 cask 'cleanshot'                                   # Screenshot utility
 cask 'command-x'                                   # Cut and paste files in Finder
 mas  'Dato', id: 1470584107                        # Calendar updates and world clock
@@ -28,11 +28,13 @@ cask 'jordanbaird-ice'                             # Menu bar management
 cask 'logi-options+'                               # Logitech MX Master mouse
 cask 'microsoft-onenote'                           # Note-taking
 cask 'notion'                                      # Notion
+cask 'perplexity'                                  # Perplexity desktop app
 cask 'raycast'                                     # Spotlight alternative
 mas  'TP-Link Tapo', id: 1472718009                # Tapo smartplug integration (fails)
 mas  'SponsorBlock for YouTube', id: 1573461917    # Skip sponsors in videos
 cask 'spotify', args: { require_sha: false }       # Music
 brew 'starship'                                    # Command prompt customisation
+cask 'tailscale'                                   # Home VPN
 #cask 'topnotch'                                    # Hide the top-notch on macbook
 cask 'warp'                                        # Terminal
 cask 'whatsapp'                                    # Messaging
@@ -42,18 +44,50 @@ mas  'Unsplash Wallpapers', id: 1284863847         # Randomised wallpapers
 ###############################################################################
 # Mac OS Quick-Look Plugins
 ###############################################################################
-#cask 'qlcolorcode'    # QL for code with highlighting
-#cask 'qlmarkdown'     # QL for markdown files
-#cask 'qlvideo'        # QL for video formats
+cask 'qlcolorcode'    # QL for code with highlighting
+cask 'qlmarkdown'     # QL for markdown files
+cask 'qlvideo'        # QL for video formats
+
+
+###############################################################################
+# Command Line Tools
+###############################################################################
+
+# CLI Essentials
+brew 'bash'                   # Shell
+brew 'chezmoi'                # Manage dotfiles
+brew 'nano'                   # Text editor
+
+# CLI Basics
+#brew 'bat'                    # Output highlighting (a better cat)
+#brew 'bat-extras'             # Colourful wrappers for other utilities
+brew 'dust'                    # A better du
+brew 'dysk'                    # A better df
+#brew 'eza'                    # Listing files (a better ls)
+#brew 'ripgrep'                # Line-orientated search tool (a better grep)
+brew 'tlrc'                    # Brief documentation (a better man)
+#brew 'dog'                    # DNS lookups (a better dig)
+brew 'terminal-notifier'       # Send Mac OS notifications from the terminal
+
+# CLI Monitoring / Performance
+brew 'btop'                    # Resource monitoring (better htop)
+brew 'nmap'                    # Network scanning
+
+# CLI Fun
+brew 'lolcat'
+brew 'fastfetch'
 
 
 ###############################################################################
 # Development
 ###############################################################################
-brew   'git'                  # Version control
-brew   'httpie'               # HTTP / API client (better curl)
-brew   'python'               # Python interpreter
-#cask   'rancher'              # Rancher Desktop (docker and kubernetes)
+brew 'delta'                # Pretty git diff
+brew 'git'                  # Version control
+brew 'glab'                 # GitLab (Duo) CLI
+brew 'httpie'               # HTTP / API client (better curl)
+brew 'jq'                   # JSON parser
+brew 'python'               # Python interpreter
+brew 'yq'                   # JQ for Yaml
 
 cask   'visual-studio-code'              # IDE
 
@@ -74,28 +108,10 @@ cask   'visual-studio-code'              # IDE
 
 
 ###############################################################################
-# Command Line Tools
+# Infrastructure
 ###############################################################################
-
-# CLI Essentials
-brew 'bash'                   # Shell
-brew 'chezmoi'                # Manage dotfiles
-brew 'nano'                   # Text editor
-
-# CLI Basics
-#brew 'bat'                    # Output highlighting (a better cat)
-#brew 'bat-extras'             # Colourful wrappers for other utilities
-#brew 'eza'                    # Listing files (a better ls)
-brew 'jq'                      # JSON parser
-#brew 'ripgrep'                # Line-orientated search tool (a better grep)
-brew 'tlrc'                    # Brief documentation (a better man)
-#brew 'dog'                    # DNS lookups (a better dig)
-brew 'terminal-notifier'       # Send Mac OS notifications from the terminal
-
-# CLI Monitoring / Performance
-brew 'bpytop'                  # Resource monitoring (better htop)
-brew 'nmap'                    # Network scanning
-
-# CLI Fun
-brew 'lolcat'
-brew 'fastfetch'
+brew   'awscli'               # AWS CLI
+brew   'aws-vault'            # Secure AWS credential management
+#brew   'helm'                 # Helm
+#brew   'kubectl'              # Kubectl
+#cask   'rancher'              # Rancher Desktop (docker and kubernetes)
