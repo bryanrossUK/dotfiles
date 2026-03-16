@@ -1,3 +1,4 @@
+
 # Taps
 tap "buo/cask-upgrade"                 # upgrade cask-installed apps with `brew cu`
 
@@ -8,8 +9,11 @@ cask_args appdir: '/Applications', fontdir: '/Library/Fonts', require_sha: true
 ###############################################################################
 # Fonts
 ###############################################################################
-cask 'font-jetbrains-mono-nerd-font'
-cask 'font-hack-nerd-font'
+cask 'font-jetbrains-mono-nerd-font'  # terminal font
+cask 'font-hack-nerd-font'            # terminal font
+cask 'font-fira-code'                 # code samples
+cask 'font-cascadia-code'             # code samples
+cask 'font-inter'                     # clean ui
 
 
 ###############################################################################
@@ -20,21 +24,20 @@ cask '1password-cli'                               # Access 1Password from the c
 cask 'arc'                                         # Browser
 cask 'claude'                                      # Claude desktop app
 cask 'cleanshot'                                   # Screenshot utility
-cask 'command-x'                                   # Cut and paste files in Finder
+mas  'Command X', id: 6448461551                   # Cut and paste files in Finder
 mas  'Dato', id: 1470584107                        # Calendar updates and world clock
 cask 'elgato-stream-deck'                          # You always need more buttons
 cask 'google-drive', args: { require_sha: false }  # Work file storage
 cask 'jordanbaird-ice'                             # Menu bar management
-cask 'logi-options+'                               # Logitech MX Master mouse
+cask 'logi-options+', args: { require_sha: false } # Logitech MX Master mouse
 cask 'microsoft-onenote'                           # Note-taking
 cask 'notion'                                      # Notion
-cask 'perplexity'                                  # Perplexity desktop app
+mas  'perplexity', id: 6714467650                  # Perplexity desktop app
 cask 'raycast'                                     # Spotlight alternative
-mas  'TP-Link Tapo', id: 1472718009                # Tapo smartplug integration (fails)
 mas  'SponsorBlock for YouTube', id: 1573461917    # Skip sponsors in videos
 cask 'spotify', args: { require_sha: false }       # Music
 brew 'starship'                                    # Command prompt customisation
-cask 'tailscale'                                   # Home VPN
+cask 'tailscale-app'                               # Home VPN
 #cask 'topnotch'                                    # Hide the top-notch on macbook
 cask 'warp'                                        # Terminal
 cask 'whatsapp'                                    # Messaging

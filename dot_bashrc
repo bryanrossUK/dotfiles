@@ -54,7 +54,7 @@ if command -v chezmoi &> /dev/null; then
     case $1 in
       cd     ) cd $(command chezmoi source-path) ;;                # stop launching a new shell
       pull   ) command chezmoi git pull -- --autostash --rebase ;; # pull updates, but dont apply them
-      commit ) command chezmoi git -- commit -am "${@:2}" && \
+      commit ) command chezmoi git -- commit "${@:2}" && \
                command chezmoi git -- push ;;                      # commit changes and push them
       push   ) command chezmoi git -- push ${@:2} ;;               # push changes
       *      ) command chezmoi "$@" ;;                             # let chezmoi do its thing
