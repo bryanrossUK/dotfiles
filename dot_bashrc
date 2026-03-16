@@ -5,9 +5,6 @@
 # Launch Starship (custom command prompt)
 eval "$(starship init bash)"
 
-# Initialise acme.sh (certificate management)
-#source $HOME/.acme.sh/acme.sh.env
-
 
 ###############################################################################
 # Aliases
@@ -23,38 +20,30 @@ if command -v eza &> /dev/null; then
 fi
 
 # du / df more human
-alias du="command du -d 1 -h"
-alias df="command df -h"
+alias du="command dust -d 1"
+alias df="command dysk"
 
 # Bat brings a few colourful themes
 export BAT_THEME="Visual Studio Dark+"
 
 # Bat is better than cat
 if command -v bat &> /dev/null; then
-  alias cat='bat --paging=never --style=header,grid'
-  alias less='bat --style=header,grid'
+  alias cat='bat --paging=never --style=auto'
+  export PAGER='bat --style=auto'
+  export MANPAGER='bat --style=plain --language=man'
 else
   # Repaint the screen, discarding any buffered input.  That is, reload the current
   # file.  Useful if the file is changing while it is being viewed.
   alias less='less -R'
 fi
 
-# Bat is also a pretty good grep (although not 100% compatible)
-if command -v bat &> /dev/null; then
-  alias grep='batgrep'
-else
-  alias grep='command grep -R -H -n --color=auto --exclude-dir={.git,.svn,CVS} $@ 2>/dev/null'
-fi
+# Grep
+alias grep='command grep -rn --color=auto --exclude-dir={.git,.svn,CVS,.hg,node_modules,.direnv,.terraform}'
 
-# Bat comes with some other extras too
-if command -v batdiff  &> /dev/null; then alias diff='batdiff --paging=never'; fi
-if command -v batwatch &> /dev/null; then alias watch='batwatch'; fi
-if command -v batman   &> /dev/null; then alias man='batman'; fi
+# Doggo is a better dig
+if command -v doggo &> /dev/null; then alias dig='doggo'; fi
 
-# Dog is a better dig
-if command -v dog &> /dev/null; then alias dig='dog'; fi
-
-# bpytop is top turned up to 11
+# btop is top turned up to 11
 if command -v bpytop &> /dev/null; then alias top='bpytop'; fi
 
 # make chezmoi a little more usable
